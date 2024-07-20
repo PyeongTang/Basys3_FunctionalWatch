@@ -1,0 +1,467 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 2024/07/10 00:14:42
+// Design Name: 
+// Module Name: LookUpTable
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module SG90_LUT (
+    input       wire                    i_reset,
+    input       wire        [11 : 0]    i_duty,
+    output      wire        [11 : 0]    o_duty
+);
+
+    parameter                           SERVO_NEUTRAL       =   12'd308;
+    reg                     [11 : 0]    r_duty_deg_hex;
+    always @(*) begin
+        if (i_reset) begin
+            r_duty_deg_hex = 0;
+        end
+        else begin
+            if (i_duty >  SERVO_NEUTRAL) begin
+                case ((i_duty - SERVO_NEUTRAL))
+                    1   :   r_duty_deg_hex = 0;
+                    2   :   r_duty_deg_hex = 1;
+                    3   :   r_duty_deg_hex = 1;
+                    4   :   r_duty_deg_hex = 2;
+                    5   :   r_duty_deg_hex = 2;
+                    6   :   r_duty_deg_hex = 3;
+                    7   :   r_duty_deg_hex = 3;
+                    8   :   r_duty_deg_hex = 3;
+                    9   :   r_duty_deg_hex = 4;
+                    10  :   r_duty_deg_hex = 4;
+                    11  :   r_duty_deg_hex = 5;
+                    12  :   r_duty_deg_hex = 5;
+                    13  :   r_duty_deg_hex = 6;
+                    14  :   r_duty_deg_hex = 6;
+                    15  :   r_duty_deg_hex = 7;
+                    16  :   r_duty_deg_hex = 7;
+                    17  :   r_duty_deg_hex = 7;
+                    18  :   r_duty_deg_hex = 8;
+                    19  :   r_duty_deg_hex = 8;
+                    20  :   r_duty_deg_hex = 9;
+                    21  :   r_duty_deg_hex = 9;
+                    22  :   r_duty_deg_hex = 10;
+                    23  :   r_duty_deg_hex = 10;
+                    24  :   r_duty_deg_hex = 10;
+                    25  :   r_duty_deg_hex = 11;
+                    26  :   r_duty_deg_hex = 11;
+                    27  :   r_duty_deg_hex = 12;
+                    28  :   r_duty_deg_hex = 12;
+                    29  :   r_duty_deg_hex = 13;
+                    30  :   r_duty_deg_hex = 13;
+                    31  :   r_duty_deg_hex = 13;
+                    32  :   r_duty_deg_hex = 14;
+                    33  :   r_duty_deg_hex = 14;
+                    34  :   r_duty_deg_hex = 15;
+                    35  :   r_duty_deg_hex = 15;
+                    36  :   r_duty_deg_hex = 16;
+                    37  :   r_duty_deg_hex = 16;
+                    38  :   r_duty_deg_hex = 17;
+                    39  :   r_duty_deg_hex = 17;
+                    40  :   r_duty_deg_hex = 17;
+                    41  :   r_duty_deg_hex = 18;
+                    42  :   r_duty_deg_hex = 18;
+                    43  :   r_duty_deg_hex = 19;
+                    44  :   r_duty_deg_hex = 19;
+                    45  :   r_duty_deg_hex = 20;
+                    46  :   r_duty_deg_hex = 20;
+                    47  :   r_duty_deg_hex = 20;
+                    48  :   r_duty_deg_hex = 21;
+                    49  :   r_duty_deg_hex = 21;
+                    50  :   r_duty_deg_hex = 22;
+                    51  :   r_duty_deg_hex = 22;
+                    52  :   r_duty_deg_hex = 23;
+                    53  :   r_duty_deg_hex = 23;
+                    54  :   r_duty_deg_hex = 23;
+                    55  :   r_duty_deg_hex = 24;
+                    56  :   r_duty_deg_hex = 24;
+                    57  :   r_duty_deg_hex = 25;
+                    58  :   r_duty_deg_hex = 25;
+                    59  :   r_duty_deg_hex = 26;
+                    60  :   r_duty_deg_hex = 26;
+                    61  :   r_duty_deg_hex = 27;
+                    62  :   r_duty_deg_hex = 27;
+                    63  :   r_duty_deg_hex = 27;
+                    64  :   r_duty_deg_hex = 28;
+                    65  :   r_duty_deg_hex = 28;
+                    66  :   r_duty_deg_hex = 29;
+                    67  :   r_duty_deg_hex = 29;
+                    68  :   r_duty_deg_hex = 30;
+                    69  :   r_duty_deg_hex = 30;
+                    70  :   r_duty_deg_hex = 30;
+                    71  :   r_duty_deg_hex = 31;
+                    72  :   r_duty_deg_hex = 31;
+                    73  :   r_duty_deg_hex = 32;
+                    74  :   r_duty_deg_hex = 32;
+                    75  :   r_duty_deg_hex = 33;
+                    76  :   r_duty_deg_hex = 33;
+                    77  :   r_duty_deg_hex = 33;
+                    78  :   r_duty_deg_hex = 34;
+                    79  :   r_duty_deg_hex = 34;
+                    80  :   r_duty_deg_hex = 35;
+                    81  :   r_duty_deg_hex = 35;
+                    82  :   r_duty_deg_hex = 36;
+                    83  :   r_duty_deg_hex = 36;
+                    84  :   r_duty_deg_hex = 37;
+                    85  :   r_duty_deg_hex = 37;
+                    86  :   r_duty_deg_hex = 37;
+                    87  :   r_duty_deg_hex = 38;
+                    88  :   r_duty_deg_hex = 38;
+                    89  :   r_duty_deg_hex = 39;
+                    90  :   r_duty_deg_hex = 39;
+                    91  :   r_duty_deg_hex = 40;
+                    92  :   r_duty_deg_hex = 40;
+                    93  :   r_duty_deg_hex = 40;
+                    94  :   r_duty_deg_hex = 41;
+                    95  :   r_duty_deg_hex = 41;
+                    96  :   r_duty_deg_hex = 42;
+                    97  :   r_duty_deg_hex = 42;
+                    98  :   r_duty_deg_hex = 43;
+                    99  :   r_duty_deg_hex = 43;
+                    100 :   r_duty_deg_hex = 43;
+                    101 :   r_duty_deg_hex = 44;
+                    102 :   r_duty_deg_hex = 44;
+                    103 :   r_duty_deg_hex = 45;
+                    104 :   r_duty_deg_hex = 45;
+                    105 :   r_duty_deg_hex = 46;
+                    106 :   r_duty_deg_hex = 46;
+                    107 :   r_duty_deg_hex = 47;
+                    108 :   r_duty_deg_hex = 47;
+                    109 :   r_duty_deg_hex = 47;
+                    110 :   r_duty_deg_hex = 48;
+                    111 :   r_duty_deg_hex = 48;
+                    112 :   r_duty_deg_hex = 49;
+                    113 :   r_duty_deg_hex = 49;
+                    114 :   r_duty_deg_hex = 50;
+                    115 :   r_duty_deg_hex = 50;
+                    116 :   r_duty_deg_hex = 50;
+                    117 :   r_duty_deg_hex = 51;
+                    118 :   r_duty_deg_hex = 51;
+                    119 :   r_duty_deg_hex = 52;
+                    120 :   r_duty_deg_hex = 52;
+                    121 :   r_duty_deg_hex = 53;
+                    122 :   r_duty_deg_hex = 53;
+                    123 :   r_duty_deg_hex = 53;
+                    124 :   r_duty_deg_hex = 54;
+                    125 :   r_duty_deg_hex = 54;
+                    126 :   r_duty_deg_hex = 55;
+                    127 :   r_duty_deg_hex = 55;
+                    128 :   r_duty_deg_hex = 56;
+                    129 :   r_duty_deg_hex = 56;
+                    130 :   r_duty_deg_hex = 57;
+                    131 :   r_duty_deg_hex = 57;
+                    132 :   r_duty_deg_hex = 57;
+                    133 :   r_duty_deg_hex = 58;
+                    134 :   r_duty_deg_hex = 58;
+                    135 :   r_duty_deg_hex = 59;
+                    136 :   r_duty_deg_hex = 59;
+                    137 :   r_duty_deg_hex = 60;
+                    138 :   r_duty_deg_hex = 60;
+                    139 :   r_duty_deg_hex = 60;
+                    140 :   r_duty_deg_hex = 61;
+                    141 :   r_duty_deg_hex = 61;
+                    142 :   r_duty_deg_hex = 62;
+                    143 :   r_duty_deg_hex = 62;
+                    144 :   r_duty_deg_hex = 63;
+                    145 :   r_duty_deg_hex = 63;
+                    146 :   r_duty_deg_hex = 63;
+                    147 :   r_duty_deg_hex = 64;
+                    148 :   r_duty_deg_hex = 64;
+                    149 :   r_duty_deg_hex = 65;
+                    150 :   r_duty_deg_hex = 65;
+                    151 :   r_duty_deg_hex = 66;
+                    152 :   r_duty_deg_hex = 66;
+                    153 :   r_duty_deg_hex = 67;
+                    154 :   r_duty_deg_hex = 67;
+                    155 :   r_duty_deg_hex = 67;
+                    156 :   r_duty_deg_hex = 68;
+                    157 :   r_duty_deg_hex = 68;
+                    158 :   r_duty_deg_hex = 69;
+                    159 :   r_duty_deg_hex = 69;
+                    160 :   r_duty_deg_hex = 70;
+                    161 :   r_duty_deg_hex = 70;
+                    162 :   r_duty_deg_hex = 70;
+                    163 :   r_duty_deg_hex = 71;
+                    164 :   r_duty_deg_hex = 71;
+                    165 :   r_duty_deg_hex = 72;
+                    166 :   r_duty_deg_hex = 72;
+                    167 :   r_duty_deg_hex = 73;
+                    168 :   r_duty_deg_hex = 73;
+                    169 :   r_duty_deg_hex = 73;
+                    170 :   r_duty_deg_hex = 74;
+                    171 :   r_duty_deg_hex = 74;
+                    172 :   r_duty_deg_hex = 75;
+                    173 :   r_duty_deg_hex = 75;
+                    174 :   r_duty_deg_hex = 76;
+                    175 :   r_duty_deg_hex = 76;
+                    176 :   r_duty_deg_hex = 77;
+                    177 :   r_duty_deg_hex = 77;
+                    178 :   r_duty_deg_hex = 77;
+                    179 :   r_duty_deg_hex = 78;
+                    180 :   r_duty_deg_hex = 78;
+                    181 :   r_duty_deg_hex = 79;
+                    182 :   r_duty_deg_hex = 79;
+                    183 :   r_duty_deg_hex = 80;
+                    184 :   r_duty_deg_hex = 80;
+                    185 :   r_duty_deg_hex = 80;
+                    186 :   r_duty_deg_hex = 81;
+                    187 :   r_duty_deg_hex = 81;
+                    188 :   r_duty_deg_hex = 82;
+                    189 :   r_duty_deg_hex = 82;
+                    190 :   r_duty_deg_hex = 83;
+                    191 :   r_duty_deg_hex = 83;
+                    192 :   r_duty_deg_hex = 83;
+                    193 :   r_duty_deg_hex = 84;
+                    194 :   r_duty_deg_hex = 84;
+                    195 :   r_duty_deg_hex = 85;
+                    196 :   r_duty_deg_hex = 85;
+                    197 :   r_duty_deg_hex = 86;
+                    198 :   r_duty_deg_hex = 86;
+                    199 :   r_duty_deg_hex = 87;
+                    200 :   r_duty_deg_hex = 87;
+                    201 :   r_duty_deg_hex = 87;
+                    202 :   r_duty_deg_hex = 88;
+                    203 :   r_duty_deg_hex = 88;
+                    204 :   r_duty_deg_hex = 89;
+                    205 :   r_duty_deg_hex = 89;
+                    206 :   r_duty_deg_hex = 90;
+                    207 :   r_duty_deg_hex = 90;
+                    default:r_duty_deg_hex = 0;
+                endcase
+            end
+            else if (i_duty <  SERVO_NEUTRAL) begin
+                case ((SERVO_NEUTRAL - i_duty))
+                    1   :   r_duty_deg_hex = 0;
+                    2   :   r_duty_deg_hex = 1;
+                    3   :   r_duty_deg_hex = 1;
+                    4   :   r_duty_deg_hex = 2;
+                    5   :   r_duty_deg_hex = 2;
+                    6   :   r_duty_deg_hex = 3;
+                    7   :   r_duty_deg_hex = 3;
+                    8   :   r_duty_deg_hex = 3;
+                    9   :   r_duty_deg_hex = 4;
+                    10  :   r_duty_deg_hex = 4;
+                    11  :   r_duty_deg_hex = 5;
+                    12  :   r_duty_deg_hex = 5;
+                    13  :   r_duty_deg_hex = 6;
+                    14  :   r_duty_deg_hex = 6;
+                    15  :   r_duty_deg_hex = 7;
+                    16  :   r_duty_deg_hex = 7;
+                    17  :   r_duty_deg_hex = 7;
+                    18  :   r_duty_deg_hex = 8;
+                    19  :   r_duty_deg_hex = 8;
+                    20  :   r_duty_deg_hex = 9;
+                    21  :   r_duty_deg_hex = 9;
+                    22  :   r_duty_deg_hex = 10;
+                    23  :   r_duty_deg_hex = 10;
+                    24  :   r_duty_deg_hex = 10;
+                    25  :   r_duty_deg_hex = 11;
+                    26  :   r_duty_deg_hex = 11;
+                    27  :   r_duty_deg_hex = 12;
+                    28  :   r_duty_deg_hex = 12;
+                    29  :   r_duty_deg_hex = 13;
+                    30  :   r_duty_deg_hex = 13;
+                    31  :   r_duty_deg_hex = 13;
+                    32  :   r_duty_deg_hex = 14;
+                    33  :   r_duty_deg_hex = 14;
+                    34  :   r_duty_deg_hex = 15;
+                    35  :   r_duty_deg_hex = 15;
+                    36  :   r_duty_deg_hex = 16;
+                    37  :   r_duty_deg_hex = 16;
+                    38  :   r_duty_deg_hex = 17;
+                    39  :   r_duty_deg_hex = 17;
+                    40  :   r_duty_deg_hex = 17;
+                    41  :   r_duty_deg_hex = 18;
+                    42  :   r_duty_deg_hex = 18;
+                    43  :   r_duty_deg_hex = 19;
+                    44  :   r_duty_deg_hex = 19;
+                    45  :   r_duty_deg_hex = 20;
+                    46  :   r_duty_deg_hex = 20;
+                    47  :   r_duty_deg_hex = 20;
+                    48  :   r_duty_deg_hex = 21;
+                    49  :   r_duty_deg_hex = 21;
+                    50  :   r_duty_deg_hex = 22;
+                    51  :   r_duty_deg_hex = 22;
+                    52  :   r_duty_deg_hex = 23;
+                    53  :   r_duty_deg_hex = 23;
+                    54  :   r_duty_deg_hex = 23;
+                    55  :   r_duty_deg_hex = 24;
+                    56  :   r_duty_deg_hex = 24;
+                    57  :   r_duty_deg_hex = 25;
+                    58  :   r_duty_deg_hex = 25;
+                    59  :   r_duty_deg_hex = 26;
+                    60  :   r_duty_deg_hex = 26;
+                    61  :   r_duty_deg_hex = 27;
+                    62  :   r_duty_deg_hex = 27;
+                    63  :   r_duty_deg_hex = 27;
+                    64  :   r_duty_deg_hex = 28;
+                    65  :   r_duty_deg_hex = 28;
+                    66  :   r_duty_deg_hex = 29;
+                    67  :   r_duty_deg_hex = 29;
+                    68  :   r_duty_deg_hex = 30;
+                    69  :   r_duty_deg_hex = 30;
+                    70  :   r_duty_deg_hex = 30;
+                    71  :   r_duty_deg_hex = 31;
+                    72  :   r_duty_deg_hex = 31;
+                    73  :   r_duty_deg_hex = 32;
+                    74  :   r_duty_deg_hex = 32;
+                    75  :   r_duty_deg_hex = 33;
+                    76  :   r_duty_deg_hex = 33;
+                    77  :   r_duty_deg_hex = 33;
+                    78  :   r_duty_deg_hex = 34;
+                    79  :   r_duty_deg_hex = 34;
+                    80  :   r_duty_deg_hex = 35;
+                    81  :   r_duty_deg_hex = 35;
+                    82  :   r_duty_deg_hex = 36;
+                    83  :   r_duty_deg_hex = 36;
+                    84  :   r_duty_deg_hex = 37;
+                    85  :   r_duty_deg_hex = 37;
+                    86  :   r_duty_deg_hex = 37;
+                    87  :   r_duty_deg_hex = 38;
+                    88  :   r_duty_deg_hex = 38;
+                    89  :   r_duty_deg_hex = 39;
+                    90  :   r_duty_deg_hex = 39;
+                    91  :   r_duty_deg_hex = 40;
+                    92  :   r_duty_deg_hex = 40;
+                    93  :   r_duty_deg_hex = 40;
+                    94  :   r_duty_deg_hex = 41;
+                    95  :   r_duty_deg_hex = 41;
+                    96  :   r_duty_deg_hex = 42;
+                    97  :   r_duty_deg_hex = 42;
+                    98  :   r_duty_deg_hex = 43;
+                    99  :   r_duty_deg_hex = 43;
+                    100 :   r_duty_deg_hex = 43;
+                    101 :   r_duty_deg_hex = 44;
+                    102 :   r_duty_deg_hex = 44;
+                    103 :   r_duty_deg_hex = 45;
+                    104 :   r_duty_deg_hex = 45;
+                    105 :   r_duty_deg_hex = 46;
+                    106 :   r_duty_deg_hex = 46;
+                    107 :   r_duty_deg_hex = 47;
+                    108 :   r_duty_deg_hex = 47;
+                    109 :   r_duty_deg_hex = 47;
+                    110 :   r_duty_deg_hex = 48;
+                    111 :   r_duty_deg_hex = 48;
+                    112 :   r_duty_deg_hex = 49;
+                    113 :   r_duty_deg_hex = 49;
+                    114 :   r_duty_deg_hex = 50;
+                    115 :   r_duty_deg_hex = 50;
+                    116 :   r_duty_deg_hex = 50;
+                    117 :   r_duty_deg_hex = 51;
+                    118 :   r_duty_deg_hex = 51;
+                    119 :   r_duty_deg_hex = 52;
+                    120 :   r_duty_deg_hex = 52;
+                    121 :   r_duty_deg_hex = 53;
+                    122 :   r_duty_deg_hex = 53;
+                    123 :   r_duty_deg_hex = 53;
+                    124 :   r_duty_deg_hex = 54;
+                    125 :   r_duty_deg_hex = 54;
+                    126 :   r_duty_deg_hex = 55;
+                    127 :   r_duty_deg_hex = 55;
+                    128 :   r_duty_deg_hex = 56;
+                    129 :   r_duty_deg_hex = 56;
+                    130 :   r_duty_deg_hex = 57;
+                    131 :   r_duty_deg_hex = 57;
+                    132 :   r_duty_deg_hex = 57;
+                    133 :   r_duty_deg_hex = 58;
+                    134 :   r_duty_deg_hex = 58;
+                    135 :   r_duty_deg_hex = 59;
+                    136 :   r_duty_deg_hex = 59;
+                    137 :   r_duty_deg_hex = 60;
+                    138 :   r_duty_deg_hex = 60;
+                    139 :   r_duty_deg_hex = 60;
+                    140 :   r_duty_deg_hex = 61;
+                    141 :   r_duty_deg_hex = 61;
+                    142 :   r_duty_deg_hex = 62;
+                    143 :   r_duty_deg_hex = 62;
+                    144 :   r_duty_deg_hex = 63;
+                    145 :   r_duty_deg_hex = 63;
+                    146 :   r_duty_deg_hex = 63;
+                    147 :   r_duty_deg_hex = 64;
+                    148 :   r_duty_deg_hex = 64;
+                    149 :   r_duty_deg_hex = 65;
+                    150 :   r_duty_deg_hex = 65;
+                    151 :   r_duty_deg_hex = 66;
+                    152 :   r_duty_deg_hex = 66;
+                    153 :   r_duty_deg_hex = 67;
+                    154 :   r_duty_deg_hex = 67;
+                    155 :   r_duty_deg_hex = 67;
+                    156 :   r_duty_deg_hex = 68;
+                    157 :   r_duty_deg_hex = 68;
+                    158 :   r_duty_deg_hex = 69;
+                    159 :   r_duty_deg_hex = 69;
+                    160 :   r_duty_deg_hex = 70;
+                    161 :   r_duty_deg_hex = 70;
+                    162 :   r_duty_deg_hex = 70;
+                    163 :   r_duty_deg_hex = 71;
+                    164 :   r_duty_deg_hex = 71;
+                    165 :   r_duty_deg_hex = 72;
+                    166 :   r_duty_deg_hex = 72;
+                    167 :   r_duty_deg_hex = 73;
+                    168 :   r_duty_deg_hex = 73;
+                    169 :   r_duty_deg_hex = 73;
+                    170 :   r_duty_deg_hex = 74;
+                    171 :   r_duty_deg_hex = 74;
+                    172 :   r_duty_deg_hex = 75;
+                    173 :   r_duty_deg_hex = 75;
+                    174 :   r_duty_deg_hex = 76;
+                    175 :   r_duty_deg_hex = 76;
+                    176 :   r_duty_deg_hex = 77;
+                    177 :   r_duty_deg_hex = 77;
+                    178 :   r_duty_deg_hex = 77;
+                    179 :   r_duty_deg_hex = 78;
+                    180 :   r_duty_deg_hex = 78;
+                    181 :   r_duty_deg_hex = 79;
+                    182 :   r_duty_deg_hex = 79;
+                    183 :   r_duty_deg_hex = 80;
+                    184 :   r_duty_deg_hex = 80;
+                    185 :   r_duty_deg_hex = 80;
+                    186 :   r_duty_deg_hex = 81;
+                    187 :   r_duty_deg_hex = 81;
+                    188 :   r_duty_deg_hex = 82;
+                    189 :   r_duty_deg_hex = 82;
+                    190 :   r_duty_deg_hex = 83;
+                    191 :   r_duty_deg_hex = 83;
+                    192 :   r_duty_deg_hex = 83;
+                    193 :   r_duty_deg_hex = 84;
+                    194 :   r_duty_deg_hex = 84;
+                    195 :   r_duty_deg_hex = 85;
+                    196 :   r_duty_deg_hex = 85;
+                    197 :   r_duty_deg_hex = 86;
+                    198 :   r_duty_deg_hex = 86;
+                    199 :   r_duty_deg_hex = 87;
+                    200 :   r_duty_deg_hex = 87;
+                    201 :   r_duty_deg_hex = 87;
+                    202 :   r_duty_deg_hex = 88;
+                    203 :   r_duty_deg_hex = 88;
+                    204 :   r_duty_deg_hex = 89;
+                    205 :   r_duty_deg_hex = 89;
+                    206 :   r_duty_deg_hex = 90;
+                    207 :   r_duty_deg_hex = 90;
+                    default:r_duty_deg_hex = 0;
+                endcase
+            end
+            else begin
+                r_duty_deg_hex = 0;
+            end
+        end
+    end
+
+    assign o_duty = r_duty_deg_hex;
+    
+endmodule
